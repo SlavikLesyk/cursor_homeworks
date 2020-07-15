@@ -11,7 +11,7 @@ console.log(Math.min(priceFruits, priceMeat, priceFish));
 console.log(sumPrices);
 console.log(sumTruncPrices);
 console.log(Math.round(sumPrices/100) * 100);
-console.log(sumTruncPrices/2 - Math.floor(sumTruncPrices/2) === 0);
+console.log(sumTruncPrices%2 === 0);
 console.log((500 - sumPrices.toFixed(2)));
 console.log((sumPrices/3).toFixed(2));
 console.log(randomDiscount);
@@ -25,7 +25,7 @@ document.writeln(`
     <p>Вартість всіх товарів: ${sumPrices}</p>
     <p>Ціна округлена до меншого: ${sumTruncPrices}</p>
     <p>Ціна округлена до сотень: ${Math.round(sumPrices/100) * 100}</p>
-    <p>Чи вартість всіх товарів округлена до меншого парна?: ${sumTruncPrices/2 - Math.floor(sumTruncPrices/2) === 0}</li>
+    <p>Чи вартість всіх товарів округлена до меншого парна?: ${sumTruncPrices%2 === 0}</li>
     <p>Решта з 500: ${(500 - sumPrices.toFixed(2))}</p>
     <p>Середнє значення цін: ${(sumPrices/3).toFixed(2)}</p>
     <p>Знижка: ${randomDiscount}%</p>
