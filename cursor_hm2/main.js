@@ -1,17 +1,17 @@
 let sumOfNumber = 0;
 let currentNumber = null;
 
-const firstNumber = parseFloat(prompt('Введіть перше ціле число N'));
+let firstNumber = parseFloat(prompt('Введіть перше ціле число N'));
 
 while(firstNumber.isNaN || firstNumber%1 !== 0){
-    firstNumber =  parseFloat(prompt('Ви ввели невірне число, повторіть спробу'));
+    firstNumber =  parseFloat(prompt('Ви ввели невірне число N, повторіть спробу'));
 
 }
 
-const secondNumber = parseFloat(prompt('Введіть друге ціле число M'));
+let secondNumber = parseFloat(prompt('Введіть друге ціле число M'));
 
 while(secondNumber.isNaN || secondNumber%1 !== 0){
-        secondNumber =  parseFloat(prompt('Ви ввели невірне число, повторіть спробу'));
+        secondNumber =  parseFloat(prompt('Ви ввели невірне число M, повторіть спробу'));
 }
 
 const onlyOdd = confirm('Пропускати парні числа?');
@@ -34,6 +34,6 @@ if (onlyOdd){
 document.writeln(`<p>Перше число N: ${firstNumber}</p>
 <p>Друге число M: ${secondNumber}</p>
 <p>Пропускати парні : ${onlyOdd ? 'Так' : 'Ні'}</p>
-<p>Сума чисел : ${sumOfNumber}</p>`)
+<p>Сума чисел : ${sumOfNumber}</p>`);
 
 
