@@ -10,8 +10,11 @@ while(firstNumber.isNaN || firstNumber%1 !== 0){
 
 let secondNumber = parseFloat(prompt('Введіть друге ціле число M'));
 
-while(secondNumber.isNaN || secondNumber%1 !== 0){
-        secondNumber =  parseFloat(prompt('Ви ввели невірне число M, повторіть спробу'));
+while(secondNumber.isNaN || secondNumber%1 !== 0 || firstNumber > secondNumber){
+    firstNumber < secondNumber ?
+        secondNumber =  parseFloat(prompt('Ви ввели невірне число M, повторіть спробу')):
+        secondNumber =  parseFloat(prompt('Ви ввели M < N, повторіть спробу'));
+
 }
 
 const onlyOdd = confirm('Пропускати парні числа?');
