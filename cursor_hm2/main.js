@@ -1,19 +1,19 @@
 let sumOfNumber = 0;
 let currentNumber = null;
 
-let firstNumber = parseFloat(prompt('Введіть перше ціле число N'));
+let firstNumber = +prompt('Введіть перше ціле число N');
 
-while(firstNumber.isNaN || firstNumber%1 !== 0){
-    firstNumber =  parseFloat(prompt('Ви ввели невірне число N, повторіть спробу'));
+while(isNaN(firstNumber) || !Number.isInteger(firstNumber)){
+    firstNumber =  +prompt('Ви ввели невірне число N, повторіть спробу');
 
 }
 
-let secondNumber = parseFloat(prompt('Введіть друге ціле число M'));
+let secondNumber = +prompt('Введіть друге ціле число M');
 
-while(secondNumber.isNaN || secondNumber%1 !== 0 || firstNumber > secondNumber){
+while(isNaN(secondNumber) || !Number.isInteger(secondNumber) || firstNumber > secondNumber){
     firstNumber < secondNumber ?
-        secondNumber =  parseFloat(prompt('Ви ввели невірне число M, повторіть спробу')):
-        secondNumber =  parseFloat(prompt('Ви ввели M < N, повторіть спробу'));
+        secondNumber =  +prompt('Ви ввели невірне число M, повторіть спробу'):
+        secondNumber =  +prompt('Ви ввели M < N, повторіть спробу');
 
 }
 
