@@ -175,19 +175,3 @@ document.writeln(`
 <h3>Функція №11: deleteDuplicateLetter(${deleteDuplicateLetterStr})</h3>
 <p>Результат: ${deleteDuplicateLetter(deleteDuplicateLetterStr)}</p>
 `);
-
-
-
-
-
-console.log(getMaxDigit(3256342));
-console.log(toExponent(2,3));
-console.log(toUpperCaseFirstLetters('fhGGfdsh asfhj09 1sGDS a'));
-console.log(getSelary(1000, 20, 1.5));
-console.log(getRandomNumber(1, 100));
-console.log(countLetter("А", "Асталавіста"));
-console.log(convertCurrency('100$'));
-console.log(deleteLetters('a', "blablabla"))
-console.log(getRandomPassword());
-console.log(isPalyndrom("Я несу гусеня"));
-console.log(deleteDuplicateLetter("Бісквіт був дуже ніжним"))
