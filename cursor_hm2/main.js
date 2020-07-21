@@ -1,26 +1,30 @@
 let sumOfNumber = 0;
 let currentNumber = null;
 
-let firstNumber = +prompt('Введіть перше ціле число N');
+let firstNumber = prompt('Введіть перше ціле число N');
 
 while(true){
+    firstNumber === '' ? prompt('Ви ввели пустий рядок, введіть число N') : firstNumber = +firstNumber;
+
     if (isNaN(firstNumber)){
-        firstNumber = +prompt('Ви ввели стрічку, введіть число N');
+        firstNumber = prompt('Ви ввели стрічку, введіть число N');
     } else if (!Number.isInteger(firstNumber)){
-        firstNumber = +prompt('Число має бути цілим, введіть число N ще раз')
-    } else 
+        firstNumber = prompt('Число має бути цілим, введіть число N ще раз')
+    } else     
         break;       
 }
 
-let secondNumber = +prompt('Введіть друге ціле число M');
+let secondNumber = prompt('Введіть друге ціле число M');
 
 while(true){
+    secondNumber === '' ? prompt('Ви ввели пустий рядок, введіть число M') : secondNumber = +secondNumber;
+
     if (isNaN(secondNumber)){
-        secondNumber = +prompt('Ви ввели стрічку, введіть число M');
+        secondNumber = prompt('Ви ввели стрічку, введіть число M');
     } else if (!Number.isInteger(secondNumber)){
-        secondNumber = +prompt('Число має бути цілим, введіть число M ще раз')
+        secondNumber = prompt('Число має бути цілим, введіть число M ще раз')
     } else if (firstNumber > secondNumber){
-        secondNumber = +prompt('Число M має бути більшим за N, введіть число M ще раз')
+        secondNumber = prompt('Число M має бути більшим за N, введіть число M ще раз')
     }else
         break;      
 }
