@@ -15,6 +15,9 @@ const getMaxDigit = (number) => {
 }
 
 const toExponent = (num, exp) => {
+    if(num === 0 && exp !== 0)
+        return 0;
+
     let result = 1;
     let positiveExp = null;
 
