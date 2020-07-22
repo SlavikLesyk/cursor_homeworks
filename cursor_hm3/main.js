@@ -74,7 +74,7 @@ const countLetter = (letter, string) => {
 
 const convertCurrency = (money) =>{
     let moneyString = money.toLowerCase();
-    let dollarRate = 25;
+    const dollarRate = 25;
 
     if(moneyString.indexOf('$') === -1 && moneyString.indexOf('uah') === -1){
         return 'not UAH and not $';
