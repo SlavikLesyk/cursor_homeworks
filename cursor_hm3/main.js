@@ -95,6 +95,7 @@ const getRandomPassword = (length = 8) => {
 }
 
 const deleteLetters = (letter, string, isUpper = false) => {
+    let newString = string;
     
     isUpper ? newString = newString.replace(letter.toUpperCase(),'') : newString = string.replace(letter.toLowerCase(),'');
 
