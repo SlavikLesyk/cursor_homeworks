@@ -124,22 +124,22 @@ const deleteDuplicateLetter = (string) => {
     return newString;
 }
 
-let getMaxDigitNum = 3256342;
-let toExponentNum = 2;
-let toExponentExp = 5;
-let toUpperCaseFirstLettersStr = 'тіЛЬки пеРШі ліТЕрИ '
-let getSelarySel =  1000;
-let getSelaryTax1 = 30;
-let getSelaryTax2 = 1.5;
-let getRandomNumberMin = 1;
-let getRandomNumberMax = 10;
-let countLetterLet = 'B';
-let countLetterStr = 'Wubba Lubba dub-dub';
-let convertCurrencyMon = '100$';
-let deleteLettersLet = 'u';
-let deleteLettersStr = 'Wubba Lubba dub-dub';
-let isPalyndromStr = 'Я несу гусеня';
-let deleteDuplicateLetterStr = 'Бісквіт був дуже ніжним';
+const getMaxDigitNum = 3256342;
+const toExponentNum = 2;
+const toExponentExp = 5;
+const toUpperCaseFirstLettersStr = 'тіЛЬки пеРШі ліТЕрИ '
+const getSelarySel =  1000;
+const getSelaryTax1 = 30;
+const getSelaryTax2 = 1.5;
+const getRandomNumberMin = 1;
+const getRandomNumberMax = 10;
+const countLetterLet = 'B';
+const countLetterStr = 'Wubba Lubba dub-dub';
+const convertCurrencyMon = '100$';
+const deleteLettersLet = 'u';
+const deleteLettersStr = 'Wubba Lubba dub-dub';
+const isPalyndromStr = 'Я несу гусеня';
+const deleteDuplicateLetterStr = 'Бісквіт був дуже ніжним';
 
 document.writeln(`
 <h3>Функція №1: getMaxDigit(${getMaxDigitNum})</h3>

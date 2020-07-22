@@ -40,7 +40,6 @@ while(true){
 const onlyOdd = confirm('Пропускати парні числа?');
 
 if (onlyOdd){
-
     (firstNumber%2 === 0) ? currentNumber = firstNumber + 1 : currentNumber = firstNumber; 
     while(currentNumber <= secondNumber){
         sumOfNumber = sumOfNumber + currentNumber;
