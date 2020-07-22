@@ -94,13 +94,18 @@ const getRandomPassword = (length = 8) => {
     return password;
 }
 
-const deleteLetters = (letter, string) => {
-    let newString = string.replace(letter.toLowerCase(),'');
-    newString = newString.replace(letter.toUpperCase(),'');
-    if (newString === string)
-        return newString;
-    else 
+const deleteLetters = (letter, string, isUpper = false) => {
+    
+    isUpper ? newString = newString.replace(letter.toUpperCase(),'') : newString = string.replace(letter.toLowerCase(),'');
+
+    if (newString !== string && !isUpper)
         return deleteLetters(letter, newString);
+    else if(newString === string && !isUpper)
+        return deleteLetters(letter, newString, true);
+    else if(newString !== string && isUpper)
+        return deleteLetters(letter, newString, true);
+    else (newString === string && isUpper)
+        return newString;
 }
 
 const isPalyndrom = (string) => {    
