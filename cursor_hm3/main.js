@@ -35,7 +35,7 @@ const toExponent = (num, exp) => {
 }
 
 const toUpperCaseFirstLetters = (string) => {
-    changedString = string.toLowerCase().split('');
+    let changedString = string.toLowerCase().split('');
     changedString[0]= changedString[0].toUpperCase();
 
     for (let i = 1; i < changedString.length - 1; i++){
@@ -96,7 +96,7 @@ const getRandomPassword = (length = 8) => {
 
 const deleteLetters = (letter, string, isUpper = false) => {
     let newString = string;
-    
+
     isUpper ? newString = newString.replace(letter.toUpperCase(),'') : newString = string.replace(letter.toLowerCase(),'');
 
     if (newString !== string && !isUpper)
