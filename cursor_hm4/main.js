@@ -23,16 +23,20 @@ const create2DArrays = (...arr) => {
     return newArray;
 }
 
+const isGirl = (str) => { 
+    return (str.indexOf('ра') === (str.length - 2) || str.indexOf('на') === (str.length - 2));
+}
+
 const separateStudents = (students) => {
     const boys = [];
     const girls = [];
     let newStudentsArr = null;
 
     for(let i = 0; i < students.length; i++){
-        if(students[i] === 'Саша' || students[i] === 'Ігор' || students[i] === 'Олексій'){
-            boys.push(students[i]);
+        if(isGirl(students[i])){
+            girls.push(students[i]);
         } else {
-            girls.push(students [i]);
+            boys.push(students [i]);
         }
     }
     
