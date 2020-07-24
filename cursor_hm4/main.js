@@ -48,7 +48,7 @@ const takePairFromArrays = (arr, isRandom) => {
     let secondElem = null;
     
     if (isRandom){
-        firstElem = arr[0].splice(getRandomElem(arr[0]),1),
+        firstElem = arr[0].splice(arr[0],1);
         secondElem = arr[1].splice(getRandomElem(arr[1]),1);
     } else {        
     firstElem = arr[0].splice(0, 1);
