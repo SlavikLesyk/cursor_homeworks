@@ -23,9 +23,8 @@ const create2DArrays = (...arr) => {
     return newArray;
 }
 
-const isGirl = (str) => { 
-    return (str.indexOf('ра') === (str.length - 2) || str.indexOf('на') === (str.length - 2));
-}
+const isGirl = (str) => (str.indexOf('ра') === (str.length - 2) || str.indexOf('на') === (str.length - 2));
+
 
 const separateStudents = (students) => {
     const boys = [];
