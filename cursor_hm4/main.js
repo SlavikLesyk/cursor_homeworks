@@ -60,7 +60,7 @@ const takePairFromArrays = (arr, isRandom) => {
     return [firstElem[0], secondElem[0]];
 } 
 
-const createPairsArray = (arr, isRandom = false) =>{                                              
+const createPairsArray = (arr, isRandom) =>{                                              
     const newArray = copy2DArray(arr);
     const pairedArray = [];
     
@@ -107,17 +107,17 @@ const addLastElements = (arr, arrOfElem) => {
     return newArray;
 }
 
-const getPairsStudent = (arrOfStudents) => {
+const getPairsStudent = (arrOfStudents, isRandom = false) => {
     const newArr = arrOfStudents.slice();    
 
-    return createPairsArray(separateStudents(newArr));
+    return createPairsArray(separateStudents(newArr), isRandom);
 }
 
-const getStudentsTask = (arrOfPairs, arrOfThemes) => {
+const getStudentsTask = (arrOfPairs, arrOfThemes, isRandom = false) => {
     const newPairsArray = copy2DArray(arrOfPairs)
     const newThemesArray = [...arrOfThemes];
     
-    return createPairsArray(create2DArrays(joinStudentsPair(newPairsArray), newThemesArray));
+    return createPairsArray(create2DArrays(joinStudentsPair(newPairsArray), newThemesArray), isRandom);
 }
 
 const getStudentsMark =(arrOfStudents, arrOfMarks) => {
