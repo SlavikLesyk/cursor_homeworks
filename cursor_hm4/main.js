@@ -25,7 +25,6 @@ const create2DArrays = (...arr) => {
 
 const isGirl = (str) => (str.indexOf('ра') === (str.length - 2) || str.indexOf('на') === (str.length - 2));
 
-
 const separateStudents = (students) => {
     const boys = [];
     const girls = [];
@@ -162,10 +161,11 @@ document.writeln(`<p>${students.join(', ')}</p>`);
 document.writeln(`<p>${themes.join(', ')}</p>`);
 document.writeln(`<p>${marks.join(', ')}</p>`);
 
-console.log (pairs);
-console.log(studentsTask);
-console.log(studentsMark);
-console.log(pairsMarks);
+console.log('pairs:', pairs);
+console.log('studentsTask:', studentsTask);
+console.log('studentsMark:', studentsMark);
+console.log('pairsMarks:', pairsMarks);
+console.log('Оригінальні масиви:')
 console.log(students);
 console.log(themes);
 console.log(marks);
