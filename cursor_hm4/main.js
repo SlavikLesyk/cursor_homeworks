@@ -58,10 +58,9 @@ const takePairFromArrays = (arr, isRandom) => {
     }
 
     return [firstElem[0], secondElem[0]];
-
 } 
 
-const createPairsArray = (arr, isRandom = true) =>{                                              
+const createPairsArray = (arr, isRandom = false) =>{                                              
     const newArray = copy2DArray(arr);
     const pairedArray = [];
     
@@ -108,6 +107,12 @@ const addLastElements = (arr, arrOfElem) => {
     return newArray;
 }
 
+const getPairsStudent = (arrOfStudents) => {
+    const newArr = arrOfStudents.slice();    
+
+    return createPairsArray(separateStudents(newArr));
+}
+
 const getStudentsTask = (arrOfPairs, arrOfThemes) => {
     const newPairsArray = copy2DArray(arrOfPairs)
     const newThemesArray = [...arrOfThemes];
@@ -115,17 +120,11 @@ const getStudentsTask = (arrOfPairs, arrOfThemes) => {
     return createPairsArray(create2DArrays(joinStudentsPair(newPairsArray), newThemesArray));
 }
 
-const getPairsStudent = (arrOfStudents) => {
-    const newArr = arrOfStudents.slice();    
-
-    return createPairsArray(separateStudents(newArr));
-}
-
 const getStudentsMark =(arrOfStudents, arrOfMarks) => {
     const newStudentsArray = [...arrOfStudents];
     const newMarksArray = [...arrOfMarks];
    
-    return createPairsArray(create2DArrays(newStudentsArray,newMarksArray), false);
+    return createPairsArray(create2DArrays(newStudentsArray,newMarksArray));
 }
 
 const getPairsMark = (arrOfStudentsTask, arrOfPairsMarks) => {
@@ -133,7 +132,6 @@ const getPairsMark = (arrOfStudentsTask, arrOfPairsMarks) => {
     const arrPairsMark = [...arrOfPairsMarks];   
    
     return addLastElements(newStudentTaskArray, arrPairsMark);
-
 }
 
 const printArray = (arr) => {
