@@ -1,3 +1,4 @@
+
 const getMaxDigit = (number) => {
     let currentNumber = null;
     let maxNumber = 0;
@@ -35,7 +36,7 @@ const toExponent = (num, exp) => {
 }
 
 const toUpperCaseFirstLetters = (string) => {
-    let changedString = string.toLowerCase().split('');
+    changedString = string.toLowerCase().split('');
     changedString[0]= changedString[0].toUpperCase();
 
     for (let i = 1; i < changedString.length - 1; i++){
