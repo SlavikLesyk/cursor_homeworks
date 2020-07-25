@@ -4,23 +4,17 @@ const students = ["Саша", "Ігор", "Олена", "Іра", "Олексі�
 const themes = ["Диференційне рівняння", "Теорія автоматів", "Алгоритми і структури даних"];
 const marks = [4, 5, 5, 3, 4, 5];
 
-const copy2DArray = (arr) => {
-    const newArr = [];
-
-    for(const item of arr){
-        newArr.push(item.slice());
+const createPairsArray = (arr1, arr2) =>{                                              
+    const pairedArray = [];
+    
+    if(arr1.length !== arr2.length)
+        return console.log('Error: Масиви мають мати однакову довжину');
+    
+    for(let i = 0; i < arr1.length; i++){
+        pairedArray.push([arr1[i], arr2[i]]);
     }
 
-    return newArr;
-}
-
-const create2DArrays = (...arr) => {
-    const newArray = [];
-    for(let i = 0; i < arr.length; i++){
-        newArray.push(arr[i])
-    }
-
-    return newArray;
+    return pairedArray;
 }
 
 const isGirl = (str) => (str.endsWith('ра') || str.endsWith('на'));
@@ -28,7 +22,7 @@ const isGirl = (str) => (str.endsWith('ра') || str.endsWith('на'));
 const separateStudents = (students) => {
     const boys = [];
     const girls = [];
-    let newStudentsArr = null;
+    const newStudentsArr = [];
 
     for(let i = 0; i < students.length; i++){
         if(isGirl(students[i])){
@@ -38,43 +32,13 @@ const separateStudents = (students) => {
         }
     }
     
-    newStudentsArr = create2DArrays(boys, girls);
+    newStudentsArr.push(boys);
+    newStudentsArr.push(girls);
 
     return newStudentsArr;
 }
-
-const getRandomElem = (arr) => Math.floor(Math.random()*arr.length);
-
-const takePairFromArrays = (arr, isRandom) => {                            
-    let firstElem = null; 
-    let secondElem = null;
-    
-    if (isRandom){
-        firstElem = arr[0].splice(0,1);
-        secondElem = arr[1].splice(getRandomElem(arr[1]),1);
-    } else {        
-    firstElem = arr[0].splice(0, 1);
-    secondElem = arr[1].splice(0, 1);
-    }
-
-    return [firstElem[0], secondElem[0]];
-} 
-
-const createPairsArray = (arr, isRandom) =>{                                              
-    const newArray = copy2DArray(arr);
-    const pairedArray = [];
-    
-    if(arr[0].length !== arr[1].length)
-        return console.log('Error: Масиви мають мати однакову довжину');
-    
-    while (newArray[0].length){
-        pairedArray.push(takePairFromArrays(newArray, isRandom));
-    }
-
-    return pairedArray;
-}
-
-const joinStudentsPair = (arr) => {
+  
+const joinStudentsPairByI = (arr) => {
     const arrayOfStrings = [];
     
     for(const elem of arr){
@@ -84,7 +48,7 @@ const joinStudentsPair = (arr) => {
     return arrayOfStrings;
 }
 
-const createPairsMarkArray = (maxMark = 5, minMark = 2, length = 3) => {
+const createPairsMarkArray = (length = 3, maxMark = 5, minMark = 2) => {
     const markArray = [];
 
     for (let i = 0; i < length; i++){
@@ -95,43 +59,54 @@ const createPairsMarkArray = (maxMark = 5, minMark = 2, length = 3) => {
 }
 
 const addLastElements = (arr, arrOfElem) => {
-    const newArray = copy2DArray(arr);
+    const newArray = [];
     
     if(arr.length !== arrOfElem.length)
         return console.log('Error: Масиви мають бути однакової довжини')
 
-    for(const i in newArray){
-        newArray[i].push(arrOfElem[i]);
+    for(let i = 0; i < arr.length; i++){
+        newArray.push(arr[i]);
+        newArray[i].push(arrOfElem[i])
     }
 
     return newArray;
 }
 
-const getPairsStudent = (arrOfStudents, isRandom = false) => {
+const getPairsStudent = (arrOfStudents) => {
     const newArr = arrOfStudents.slice();    
 
-    return createPairsArray(separateStudents(newArr), isRandom);
+    return createPairsArray(separateStudents(newArr)[0], separateStudents(newArr)[1]);
 }
 
-const getStudentsTask = (arrOfPairs, arrOfThemes, isRandom = false) => {
-    const newPairsArray = copy2DArray(arrOfPairs)
+const getStudentsTask = (arrOfPairs, arrOfThemes) => {
     const newThemesArray = [...arrOfThemes];
+    const newPairsArr = copy2DArray(arrOfPairs);
     
-    return createPairsArray(create2DArrays(joinStudentsPair(newPairsArray), newThemesArray), isRandom);
+    return createPairsArray(joinStudentsPairByI(newPairsArr), newThemesArray);
 }
 
 const getStudentsMark =(arrOfStudents, arrOfMarks) => {
     const newStudentsArray = [...arrOfStudents];
     const newMarksArray = [...arrOfMarks];
    
-    return createPairsArray(create2DArrays(newStudentsArray,newMarksArray));
+    return createPairsArray(newStudentsArray,newMarksArray);
 }
 
 const getPairsMark = (arrOfStudentsTask, arrOfPairsMarks) => {
-    const newStudentTaskArray = copy2DArray(arrOfStudentsTask);
     const arrPairsMark = [...arrOfPairsMarks];   
+    const newStudentsTaskArr = copy2DArray(arrOfStudentsTask);
    
-    return addLastElements(newStudentTaskArray, arrPairsMark);
+    return addLastElements(newStudentsTaskArr, arrPairsMark);
+}
+
+const copy2DArray = (arr) => {
+    const newArr = [];
+
+    for(const item of arr){
+        newArr.push(item.slice());
+    }
+
+    return newArr;
 }
 
 const printArray = (arr) => {
@@ -144,6 +119,15 @@ const pairs = getPairsStudent(students);
 const studentsTask = getStudentsTask(pairs, themes);
 const studentsMark = getStudentsMark(students, marks);
 const pairsMarks = getPairsMark(studentsTask,createPairsMarkArray());
+
+console.log('pairs:', pairs);
+console.log('studentsTask:', studentsTask);
+console.log('studentsMark:', studentsMark);
+console.log('pairsMarks:', pairsMarks);
+console.log('Оригінальні масиви:')
+console.log(students);
+console.log(themes);
+console.log(marks);
 
 document.writeln('<h4>Пари студентів:</h4>');
 printArray(pairs);
@@ -158,12 +142,3 @@ document.writeln('<h4>Оригінальні масиви</h4>');
 document.writeln(`<p>${students.join(', ')}</p>`);
 document.writeln(`<p>${themes.join(', ')}</p>`);
 document.writeln(`<p>${marks.join(', ')}</p>`);
-
-console.log('pairs:', pairs);
-console.log('studentsTask:', studentsTask);
-console.log('studentsMark:', studentsMark);
-console.log('pairsMarks:', pairsMarks);
-console.log('Оригінальні масиви:')
-console.log(students);
-console.log(themes);
-console.log(marks);
