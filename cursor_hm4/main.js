@@ -65,7 +65,7 @@ const addLastElements = (arr, arrOfElem) => {
         return console.log('Error: Масиви мають бути однакової довжини')
 
     for(let i = 0; i < arr.length; i++){
-        newArray.push(arr[i]);
+        newArray.push(arr[i].slice());
         newArray[i].push(arrOfElem[i])
     }
 
@@ -80,9 +80,8 @@ const getPairsStudent = (arrOfStudents) => {
 
 const getStudentsTask = (arrOfPairs, arrOfThemes) => {
     const newThemesArray = [...arrOfThemes];
-    const newPairsArr = copy2DArray(arrOfPairs);
     
-    return createPairsArray(joinStudentsPairByI(newPairsArr), newThemesArray);
+    return createPairsArray(joinStudentsPairByI(arrOfPairs), newThemesArray);
 }
 
 const getStudentsMark =(arrOfStudents, arrOfMarks) => {
@@ -94,19 +93,8 @@ const getStudentsMark =(arrOfStudents, arrOfMarks) => {
 
 const getPairsMark = (arrOfStudentsTask, arrOfPairsMarks) => {
     const arrPairsMark = [...arrOfPairsMarks];   
-    const newStudentsTaskArr = copy2DArray(arrOfStudentsTask);
-   
-    return addLastElements(newStudentsTaskArr, arrPairsMark);
-}
 
-const copy2DArray = (arr) => {
-    const newArr = [];
-
-    for(const item of arr){
-        newArr.push(item.slice());
-    }
-
-    return newArr;
+    return addLastElements(arrOfStudentsTask, arrPairsMark);
 }
 
 const printArray = (arr) => {
