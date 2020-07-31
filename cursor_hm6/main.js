@@ -74,7 +74,7 @@ const calculateWordLetters = (str) => {
     const lettersObj = {};
     
     for(const elem of str){
-        let key = elem.toLowerCase();
+        const key = elem.toLowerCase();
 
         if(lettersObj[key]){
             lettersObj[key]++;
