@@ -4,10 +4,10 @@
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const getRandomArray = (length, min, max) => {
-    const randomArray= [];
+    let randomArray= [];
 
     for(let i = 0; i < length; i++){
-        randomArray.push(getRandomNumber(min, max));
+        randomArray = [...randomArray, getRandomNumber(min, max)];
     }
 
     return randomArray;
@@ -25,7 +25,7 @@ const getModa = (...numbers) => {
     for(let i = 0; i < sortedNum.length; i++){
 
         if(counter === maxCount){
-            moda.push(numbers[i]);
+            moda = [...moda, numbers[i]];
         }
 
         if(counter > maxCount){
@@ -90,7 +90,7 @@ const replaceBadWords = (string) =>{
 
 ///////////  #9
 const divideByThree = (string) =>{
-    const dividedArr = [];
+    let dividedArr = [];
     let stringOfThree = '';
 
     for (let i = 0; i < string.length; i++){
@@ -98,17 +98,17 @@ const divideByThree = (string) =>{
         if (string[i] === ' ' && i !== string.length - 1){
             continue;
         } else if(string[i] === ' ' && i === string.length - 1){
-            dividedArr.push(stringOfThree);
+            dividedArr = [...dividedArr ,stringOfThree];
             break; 
         }
 
         stringOfThree = stringOfThree + string[i].toLowerCase();
 
         if(stringOfThree.length === 3){
-            dividedArr.push(stringOfThree);
+            dividedArr = [...dividedArr ,stringOfThree];
             stringOfThree = '';
         } else if(i === string.length - 1){
-            dividedArr.push(stringOfThree);            
+            dividedArr = [...dividedArr ,stringOfThree];            
         }
     }
 
@@ -122,7 +122,7 @@ const generateCombinations = (str) => {
     
     const generator = (arr, combinationArr = []) => {
         if (arr.length === 0) {
-        result.push(combinationArr.join(''));
+        result = [...result ,combinationArr.join('')];
       } else {
         for (let i = 0; i < arr.length; i++) {
           let curr = arr.slice();
