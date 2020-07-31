@@ -95,8 +95,11 @@ const divideByThree = (string) =>{
 
     for (let i = 0; i < string.length; i++){
 
-        if (string[i] === ' '){
+        if (string[i] === ' ' && i !== string.length - 1){
             continue;
+        } else if(string[i] === ' ' && i === string.length - 1){
+            dividedArr.push(stringOfThree);
+            break; 
         }
 
         stringOfThree = stringOfThree + string[i].toLowerCase();
