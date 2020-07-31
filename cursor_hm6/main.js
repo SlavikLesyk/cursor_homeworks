@@ -62,7 +62,7 @@ const getStudentInfo = (obj) => {
 }
 
 ////////// #4
-const getStudentsNames = (arr) => arr.map((elem) => elem.name);
+const getStudentsNames = (arr) => arr.map((elem) => elem.name).sort();
 
 ////////// #5
 const getStudentsMarks = (arr) => arr.map((elem) => +getAverageMark(elem));
