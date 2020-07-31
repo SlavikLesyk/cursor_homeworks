@@ -72,7 +72,7 @@ const getDividedByFive = (...numbers) => numbers.filter(elem => Number.isInteger
 const badWordsCheck = (word) => {
     const badWords = ['shit', 'fuck'];
 
-    return badWords.find((elem) => word.indexOf(elem) !== -1);
+    return badWords.find((elem) => word.toLowerCase().indexOf(elem) !== -1);
 };
 
 const replaceBadWords = (string) =>{
@@ -80,7 +80,7 @@ const replaceBadWords = (string) =>{
     
     return stringArr.map(elem => {
         if(badWordsCheck(elem)){
-            return elem.replace(badWordsCheck(elem), '****');
+            return elem.toLowerCase().replace(badWordsCheck(elem), '****');
         }
 
         return elem;
@@ -142,6 +142,6 @@ console.log('getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): \n
 console.log('filterEvenNumbers(1, 2, 3, 4, 5, 6): \n', filterEvenNumbers(1, 2, 3, 4, 5, 6));
 console.log('countPositiveNumbers(1, -2, 3, -4, -5, 6): \n', countPositiveNumbers(1, -2, 3, -4, -5, 6));
 console.log('getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2): \n', getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
-console.log('replaceBadWords("Are you fucking kidding?"): \n', replaceBadWords("Are you fucking kidding?"));
+console.log('replaceBadWords("Are you fucking kidding? Shit!"): \n', replaceBadWords("Are you fucking kidding? Shit!"));
 console.log('divideByThree("Comma nders"): \n', divideByThree("Comma nders"));
 console.log('generateCombinations("from"): \n', generateCombinations('from'))
