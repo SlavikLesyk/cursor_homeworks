@@ -72,7 +72,7 @@ const getDividedByFive = (...numbers) => numbers.filter(elem => Number.isInteger
 const badWordsCheck = (word) => {
     const badWords = ['shit', 'fuck'];
 
-        return badWords.find((elem) => word.indexOf(elem) !== -1);
+    return badWords.find((elem) => word.indexOf(elem) !== -1);
 };
 
 const replaceBadWords = (string) =>{
@@ -99,7 +99,7 @@ const divideByThree = (string) =>{
             continue;
         }
 
-        stringOfThree = stringOfThree + string[i];
+        stringOfThree = stringOfThree + string[i].toLowerCase();
 
         if(stringOfThree.length === 3){
             dividedArr.push(stringOfThree);
