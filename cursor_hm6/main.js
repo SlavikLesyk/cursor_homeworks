@@ -1,3 +1,5 @@
+'use strict'
+
 const students = [{
     name: "Tanya",
     course: 3,
@@ -71,7 +73,7 @@ const getBestStudent = (arr) => students[getStudentsMarks(arr).indexOf(Math.max(
 const calculateWordLetters = (str) => {
     const lettersObj = {};
     
-    for(elem of str){
+    for(const elem of str){
         let key = elem.toLowerCase();
 
         if(lettersObj[key]){
@@ -98,4 +100,4 @@ console.log('getStudentInfo(students[2]): \n', getStudentInfo(students[2]));
   
 console.log('getStudentsNames(students): \n', getStudentsNames(students));
 console.log('getBestStudent(students): \n', getBestStudent(students));
-console.log('calculateWordLetters("test"): \n', calculateWordLetters('Prist'));
+console.log('calculateWordLetters("Test"): \n', calculateWordLetters('Test'));
