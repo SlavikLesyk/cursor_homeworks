@@ -29,10 +29,11 @@ const getSalaryObj = (country) => {
 } 
 
 const getMySalary = (country) => {
-    setInterval(() => {
-        console.log("My salary:", getSalaryObj(country))
-    }, 10000);
+    console.log("My salary:", getSalaryObj(country), "wait 10 sec");
+
+    setTimeout(getMySalary, 10000, country);
 }
+
 
 //////////////// Results
 console.log("getMyTaxes.call(ukraine, 1000): ", getMyTaxes.call(ukraine, 1000));
@@ -47,5 +48,4 @@ console.log("getTotalTaxes.call(ukraine): ", getTotalTaxes.call(ukraine));
 console.log("getTotalTaxes.call(latvia): ", getTotalTaxes.call(latvia));
 console.log("getTotalTaxes.call(litva): ",getTotalTaxes.call(litva));
 
-console.log('\nWait 10 sec')
 getMySalary(ukraine);
