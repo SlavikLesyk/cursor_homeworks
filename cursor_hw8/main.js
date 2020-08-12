@@ -46,8 +46,8 @@ class Student{
 }
 
 class BudgetStudent extends Student{    
-    constructor(university, course, fullName, studentMarks) {
-        super(university, course, fullName);
+    constructor(university, course, fullName, studentMarks = []) {
+        super(university, course, fullName, studentMarks);
         
         this.studentMarks = studentMarks;
         this.getScholarship();
