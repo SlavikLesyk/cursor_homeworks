@@ -59,9 +59,7 @@ class BudgetStudent extends Student{
     }
                     
         return setTimeout(() =>{ this.getScholarship()            
-        }, 30000);
-
-   
+        }, 30000);   
     }
 
 }
