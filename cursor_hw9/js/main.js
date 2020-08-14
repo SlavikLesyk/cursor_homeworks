@@ -1,4 +1,4 @@
-let timeoutFunction = null;
+let intervalFunction = null;
 
 const renderCube = (rows, cells) => {
     const cubeCells = new Array(cells)
@@ -28,13 +28,13 @@ const paintCells = () => {
 };
 
 const generateBlocks = () => {
-    clearInterval(timeoutFunction);
+    clearInterval(intervalFunction);
     cube.innerHTML = renderCube(5,5);
     paintCells();
 };
 
 const generateBlocksInterval = () => {
     generateBlocks();
-    timeoutFunction = setTimeout(generateBlocksInterval, 1000);
+    intervalFunction = setInterval(paintCells, 1000);
 };
 
