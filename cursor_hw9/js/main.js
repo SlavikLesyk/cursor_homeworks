@@ -1,4 +1,5 @@
 let intervalFunction = null;
+const cube = document.getElementById('cube');
 
 const renderCube = (rows, cells) => {
     const cubeCells = new Array(cells)
@@ -24,7 +25,7 @@ const getRandomColor = () => `rgb(${
 
 const paintCells = () => {
     const cubeCells = document.getElementsByClassName('cube__cell');
-    [...cubeCells].map(cell => cell.style.background = getRandomColor())
+    [...cubeCells].map(cell => cell.style.background = getRandomColor());
 };
 
 const generateBlocks = () => {
