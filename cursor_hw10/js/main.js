@@ -31,8 +31,7 @@ const findMouseIndex = (event) => {
 
 const playSound = (index) =>{
     if(index !== null){
-        const indexAudio = findAudioIndex(drums[index].getAttribute('data-drums-key'));
-        
+        const indexAudio = findAudioIndex(drums[index].getAttribute('data-drums-key'));        
         drumAudio[indexAudio].play();
         drums[index].classList.add('tapped');
         setTimeout(() => {drums[index].classList.remove('tapped')}, 400 );
