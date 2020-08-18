@@ -3,6 +3,15 @@ const time = document.getElementsByClassName('time');
 
 const STEP = 50;
 
+
+const drawResult = (cb, arg, index) =>{
+    const dataStart = Date.now();
+    const chineseString = cb(arg);
+
+    chineseString.then(res => result[index].innerText =`Result: ${res}`);
+    chineseString.then(() => time[index].innerText = `Function Duration: ${(Date.now() - dataStart)}`);
+}
+
 ////////////////    Version 1
 const getRandomChinese1 = (length) =>{
 
@@ -11,8 +20,8 @@ const getRandomChinese1 = (length) =>{
         let str = '';
         
         for (let i = 0; i < length; i++){
+            sign +=STEP;   
             str += String.fromCharCode(sign);
-            sign +=STEP;           
         }  
           
         setTimeout(() =>{
@@ -22,11 +31,7 @@ const getRandomChinese1 = (length) =>{
 }
 
 ////////////////   Result 1
-const dataStart1 = Date.now();
-const chineseString1 = getRandomChinese1(5);
-
-chineseString1.then(res => result[0].innerText =`Result: ${res}`);
-chineseString1.then(() => time[0].innerText = `Function Duration: ${(Date.now() - dataStart1)}`);
+drawResult(getRandomChinese1, 5, 0);
 
 
 ////////////////    Version 2
@@ -45,11 +50,30 @@ const getRandomChinese2 = (length) =>{
 }
 
 ////////////////   Result 2
-const dataStart2 = Date.now();
-const chineseString2 = getRandomChinese2(5);
-
-chineseString2.then(res => result[1].innerText =`Result: ${res}`);
-chineseString2.then(() => time[1].innerText = `Function Duration: ${(Date.now() - dataStart2)}`);
+drawResult(getRandomChinese2, 5, 1);
 
 
+////////////////    Version 3  Найбільш наближений до опису дз, але найбільш повільна
+// const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));     //така сама функція як в другому прикладі 
 
+const getRandomChinese3 = (length) =>{
+        let promise = getRandomString(str = "");
+        for(let i = 0; i < length - 1; i++){
+            promise = promise.then(res => {
+                return getRandomString(res)})
+        }
+        
+        return promise.then(res => res);    
+}
+
+const getRandomString = (str) =>{
+    return new Promise((resolve) => { 
+        setTimeout(() =>{
+            resolve(str += getRandomChar())}
+            , STEP)          
+    })
+}
+
+////////////////   Result 3
+drawResult(getRandomChinese3, 5, 2);
+console.log(Date.now())
