@@ -11,8 +11,8 @@ const getRandomChinese1 = (length) =>{
         let str = '';
         
         for (let i = 0; i < length; i++){
-            sign +=STEP; 
             str += String.fromCharCode(sign);
+            sign +=STEP;           
         }  
           
         setTimeout(() =>{
@@ -52,33 +52,4 @@ chineseString2.then(res => result[1].innerText =`Result: ${res}`);
 chineseString2.then(() => time[1].innerText = `Function Duration: ${(Date.now() - dataStart2)}`);
 
 
-////////////////    Version 3  Найбільш наближений до опису дз
-// const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));     //така сама функція як в другому прикладі
 
-const getRandomChinese3 = (length) =>{
-        promise = getRandomChar(str = "");
-        for(let i = 0; i < length - 1; i++){
-            promise = promise.then(res => {
-
-                return getRandomString(res)})
-        }
-        
-        return promise.then(res => res);    
-}
-
-const getRandomString = (str) =>{
-    
-    return new Promise((resolve) => { 
-        str += generateRandomChar(); 
-        setTimeout(() =>{
-            resolve(str)}
-            , STEP)          
-    })
-}
-
-////////////////   Result 3
-const dataStart3 = Date.now();
-const chineseString3 = getRandomChinese2(5);
-
-chineseString3.then(res => result[2].innerText =`Result: ${res}`);
-chineseString3.then(() => time[2].innerText = `Function Duration: ${(Date.now() - dataStart3)}`);
