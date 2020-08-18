@@ -3,14 +3,13 @@ const time = document.getElementsByClassName('time');
 
 const STEP = 50;
 
-
 const drawResult = (cb, arg, index) =>{
     const dataStart = Date.now();
     const chineseString = cb(arg);
 
     chineseString.then(res => result[index].innerText =`Result: ${res}`);
     chineseString.then(() => time[index].innerText = `Function Duration: ${(Date.now() - dataStart)}`);
-}
+};
 
 ////////////////    Version 1
 const getRandomChinese1 = (length) =>{
@@ -28,7 +27,7 @@ const getRandomChinese1 = (length) =>{
             resolve(str)}
             , length * STEP)
     })
-}
+};
 
 ////////////////   Result 1
 drawResult(getRandomChinese1, 5, 0);
@@ -43,18 +42,16 @@ const getPromises = (length) =>{
     .map((elem ,index) => elem = new Promise((resolve, reject) => setTimeout(() => resolve(getRandomChar()), (index + 1) * STEP)));
 
     return promiseArray
-}
+};
 
-const getRandomChinese2 = (length) =>{ 
-    return Promise.all(getPromises(length)).then(res => res.join(''));
-}
+const getRandomChinese2 = (length) => Promise.all(getPromises(length)).then(res => res.join(''));
 
 ////////////////   Result 2
 drawResult(getRandomChinese2, 5, 1);
 
 
 ////////////////    Version 3  Найбільш наближений до опису дз, але найбільш повільна
-// const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));     //така сама функція як в другому прикладі 
+// const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));     //така сама функція як в другому варіанті 
 
 const getRandomChinese3 = (length) =>{
         let promise = getRandomString(str = "");
@@ -64,7 +61,7 @@ const getRandomChinese3 = (length) =>{
         }
         
         return promise.then(res => res);    
-}
+};
 
 const getRandomString = (str) =>{
     return new Promise((resolve) => { 
@@ -72,8 +69,7 @@ const getRandomString = (str) =>{
             resolve(str += getRandomChar())}
             , STEP)          
     })
-}
+};
 
 ////////////////   Result 3
 drawResult(getRandomChinese3, 5, 2);
-console.log(Date.now())
