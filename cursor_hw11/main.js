@@ -76,4 +76,3 @@ const getRandomString = (str) =>{
 
 ////////////////   Result 3
 drawResult(getRandomChinese3, 5, 2);
-console.log(Date.now())
