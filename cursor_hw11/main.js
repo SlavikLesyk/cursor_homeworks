@@ -11,8 +11,8 @@ const getRandomChinese1 = (length) =>{
         let str = '';
         
         for (let i = 0; i < length; i++){
+            sign +=STEP; 
             str += String.fromCharCode(sign);
-            sign +=STEP;           
         }  
           
         setTimeout(() =>{
