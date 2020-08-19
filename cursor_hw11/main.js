@@ -7,6 +7,7 @@ const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));
 
 const getRandomChinese = (length) =>{
         let promise = getRandomString(str = "");
+        
         for(let i = 0; i < length - 1; i++){
             promise = promise.then(res => {
                 return getRandomString(res)})
@@ -17,8 +18,8 @@ const getRandomChinese = (length) =>{
 
 const getRandomString = (str) =>{
     return new Promise((resolve) => { 
+        str += getRandomChar();
         setTimeout(() =>{
-            str += getRandomChar()
             resolve(str)}
             , STEP)          
     })
