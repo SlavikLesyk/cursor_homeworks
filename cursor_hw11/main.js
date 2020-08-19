@@ -19,7 +19,7 @@ const getRandomChinese1 = (length) =>{
         let str = '';
         
         for (let i = 0; i < length; i++){
-            sign +=STEP;   
+            sign += STEP;   
             str += String.fromCharCode(sign);
         }  
           
@@ -50,7 +50,7 @@ const getRandomChinese2 = (length) => Promise.all(getPromises(length)).then(res 
 drawResult(getRandomChinese2, 5, 1);
 
 
-////////////////    Version 3  Найбільш наближений до опису дз, але найбільш повільна
+////////////////    Version 3  Найбільш наближена версія до опису дз, але найбільш повільна
 // const getRandomChar = () => String.fromCharCode(+String(Date.now()).slice(-5));     //така сама функція як в другому варіанті 
 
 const getRandomChinese3 = (length) =>{
@@ -60,7 +60,7 @@ const getRandomChinese3 = (length) =>{
                 return getRandomString(res)})
         }
         
-        return promise.then(res => res);    
+        return promise;    
 };
 
 const getRandomString = (str) =>{
