@@ -18,7 +18,8 @@ const getRandomChinese = (length) =>{
 const getRandomString = (str) =>{
     return new Promise((resolve) => { 
         setTimeout(() =>{
-            resolve(str += getRandomChar())}
+            str += getRandomChar()
+            resolve(str)}
             , STEP)          
     })
 };
