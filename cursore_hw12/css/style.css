@@ -72,13 +72,13 @@ body{
     position: relative;
 }
 
-.heading-primary {
+.heading-primary,
+.heading-secondary{
     text-transform: uppercase;
-    backface-visibility: hidden;
     font-size: 98px;
     letter-spacing: 10px;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.6;
     font-family: "GalaxyOutlineItalic", Roboto, sans-serif;
 }    
 .heading-primary__top {
@@ -91,7 +91,7 @@ body{
     animation: moveInRight 1s;
 }
 .language{
-    font-family: "GalaxyRegular";
+    font-family: "GalaxyRegular", Roboto, sans-serif;
     position: absolute;
     top: 0;
     right: 0;
@@ -109,16 +109,28 @@ body{
     font-size: 18px;
     color: var(--color-secondary)
 }
-.panel-main{
-    text-align: center;
-    letter-spacing: 20px;
+.panel-main,
+.characters-panel,
+.planets-panel{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 550px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.characters-panel,
+.planets-panel,
+.films__list{
+   display: none;
 }
 .btn, .btn:link, .btn:visited {
-    font-family: "GalaxyRegular";
+    font-family: "GalaxyRegular", Roboto, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 18px;
-    padding: 5px 12px;
+    padding: 5px 15px;
+    line-height: 20px;
     display: inline-block;
     border-radius: 10rem;
     position: relative;
@@ -150,4 +162,93 @@ body{
 }
 .btn_right{
     animation: moveInRight 1s;
+}
+
+.characters-panel{
+    max-width: 500px;
+}
+
+.films{
+    position: relative;
+    min-width: 290px;
+}
+.films__current,
+.films__item
+.planets-panel>*{
+    font-size: 16px;
+}
+.films__current{
+    text-transform: none;
+    font-family: Roboto, sans-serif;
+    position: relative;
+    padding-right: 25px;
+}
+
+.films__current::after{
+    content: "";
+    border: solid var(--color-primary);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.films__list{
+    background-color: var(--color-tertary);
+    position: absolute;
+    padding: 5px 0;
+    border-radius: 10px;
+    flex-direction: column;
+}
+.films__item{
+    padding-left: 15px;
+    padding-right: 15px;
+    list-style: none;
+    line-height: 30px;
+}
+
+.films__item:hover{
+    color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.visible{
+    display: flex;
+}
+
+.content-wrap{
+    background-color: var(--color-secondary);
+    color: var(--color-tertary);
+    border-radius: 10px;
+    padding: 15px 30px;
+}
+
+.heading-secondary{
+    text-transform: uppercase;
+    font-family: "GalaxyItalic", Roboto, sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.heading-secondary > *{
+    display: block;
+
+}
+.characters__list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.characters__item{
+    display: flex;
+}
+.characters__item > *{
+    flex: 1;
+    padding: 10px;
+}
+.planets-panel{
+    max-width: 200px;
 }
