@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "GalaxyOutlineItalic";
+    src: url("fonts/SfDistantGalaxyOutlineItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;  
+}
+
+@font-face {
+    font-family: "GalaxyItalic";
+    src: url("fonts/SfDistantGalaxyItalic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;  
+}
+@font-face {
+    font-family: "GalaxyRegular";
+    src: url("fonts/SfDistantGalaxyRegular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;  
+}

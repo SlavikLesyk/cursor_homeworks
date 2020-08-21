@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cursore HW 12</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="heading-primary">
+                <span class="heading-primary__top">Star</span>
+                <span class="heading-primary__bottom">Wars</span>
+            </h1>
+            <div class="language">
+                <input type="radio" name='language' value = '' checked="checked" class="language__input" id="galactic">
+                <label for="galactic" class="language__label">Galactic Basic</label>
+                <span class="language__separator">/</span>
+                <input type="radio" name='language' value = 'wookies'  class="language__input" id="wookies">
+                <label for="wookies" class="language__label">Wookies</label>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="panel-main">
+                <button class="btn panel-main__btn btn_left">Show Characters Info</button>
+                <button class="btn panel-main__btn btn_right">Show Planets List</button>
+            </div>
+            <div class="panel-secondary">
+                <div class="characters-panel">
+                    <div class="films">
+                        <span class="films__current" id="film__current" data-film-id="2">Episode 5: Attack of the Clones</span>
+                        <ul class="films__list">
+                            <li class="films__item" data-film-id="4">Episode 1: A New Hope</li>
+                            <li class="films__item" data-film-id="5">Episode 2: The Empire Strikes Back</li>
+                            <li class="films__item" data-film-id="6">Episode 3: Return of the Jedi</li>
+                            <li class="films__item" data-film-id="1">Episode 4: The Phantom Menace</li>
+                            <li class="films__item" data-film-id="2">Episode 5: Attack of the Clones</li>
+                            <li class="films__item" data-film-id="3">Episode 6: Revenge of the Sith</li>
+                        </ul>
+                    </div>
+                    <button class="btn">Get Data</button>
+    
+                </div>
+                <div class="planets-panel">
+                    <button class="btn">Prev</button>
+                    <button class="btn">Next</button>
+                </div>
+            </div>
+            <div class="content" id="content">    
+            </div>
+        </div>
+        
+    </main>
+
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
