@@ -9,8 +9,11 @@ const btnNext = document.getElementById('btn-next');
 const btnPrev = document.getElementById('btn-previous');
 
 ////////// REQUEST
+const toHTTPS = (url) => (url[4].toLowerCase() === 's') ? url : url.slice(0,4) + 's' + url.slice(4);
+
 const sendRequest = (url) => {
-    return fetch(url)
+    const newURL = toHTTPS(url);
+    return fetch(newURL)
     .then(res => res.json())
     .catch(console.log)
 }
@@ -20,7 +23,7 @@ const generateFilmURL = (num) => `${BASE}films/${num}`;
 const getCharactersInfo = (url) =>{
 
     return sendRequest(url)
-        .then(res => res.characters.map(elem => sendRequest(elem.slice(0,4) + 's' + elem.slice(4))))
+        .then(res => res.characters.map(sendRequest))
         .then(res => Promise.all(res))
         .then(res => res.map(elem => {
             return {
@@ -145,12 +148,21 @@ planetsBtn.addEventListener('click', function(){
 
 function addEventsToPageButton(){
     let currentPage = 1;
+    let lastPage = null;
 
     btnNext.addEventListener('click', function(){
-        const obj = getPlanetsObj(generatePlanetsURL(++currentPage));
+        if(currentPage === lastPage){
+            return
+        } else{
+            const obj = getPlanetsObj(generatePlanetsURL(++currentPage));
         
-        obj.then(res => renderPlanets(res.planets, currentPage));    
-        obj.then(res => (res.next) ? currentPage : currentPage--);
+            obj.then(res => renderPlanets(res.planets, currentPage));    
+            obj.then(res => {
+                if(!res.next){
+                    lastPage = currentPage;
+                } 
+            });
+        }
     })
 
     btnPrev.addEventListener('click', function(){
