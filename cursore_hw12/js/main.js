@@ -20,7 +20,7 @@ const generateFilmURL = (num) => `${BASE}films/${num}`;
 const getCharactersInfo = (url) =>{
 
     return sendRequest(url)
-        .then(res => res.characters.map(sendRequest))
+        .then(res => res.characters.map(elem => sendRequest(elem.slice(0,4) + 's' + elem.slice(4))))
         .then(res => Promise.all(res))
         .then(res => res.map(elem => {
             return {
