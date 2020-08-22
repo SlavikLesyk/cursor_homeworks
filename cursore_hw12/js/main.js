@@ -12,7 +12,11 @@ const btnPrev = document.getElementById('btn-previous');
 const toHTTPS = (url) => (url[4].toLowerCase() === 's') ? url : url.slice(0,4) + 's' + url.slice(4);
 
 const sendRequest = (url) => {
+    
+    console.log(url);
     const newURL = toHTTPS(url);
+    console.log(newURL);                  
+    
     return fetch(newURL)
     .then(res => res.json())
     .catch(console.log)
