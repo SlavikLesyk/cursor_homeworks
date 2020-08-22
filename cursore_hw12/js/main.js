@@ -1,4 +1,4 @@
-const BASE = 'https://swapi.dev/api/';
+const BASE = 'swapi.dev/api/';
 
 const content = document.getElementById('content')
 const currentFilm = document.getElementById('current-film');
@@ -22,7 +22,7 @@ const sendRequest = (url) => {
     .catch(console.log)
 }
 
-const generateFilmURL = (num) => `${BASE}films/${num}`;
+const generateFilmURL = (num) => `${BASE}films/${num}/`;
 
 const getCharactersInfo = (url) =>{
 
