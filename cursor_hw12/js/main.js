@@ -141,11 +141,6 @@ filmBtn.addEventListener('click', function(){
     .then(renderCharacthers);
 })
 
-planetsBtn.addEventListener('click', function(){        
-    getPlanetsObj(generatePlanetsURL())
-        .then(res => renderPlanets(res.planets, 1));
-    });
-
 function addEventsToPageButton(){
     let currentPage = 1;
     let lastPage = null;
@@ -173,6 +168,11 @@ function addEventsToPageButton(){
             .then(res => renderPlanets(res.planets, currentPage))
     }
     })
+
+    planetsBtn.addEventListener('click', function(){        
+        getPlanetsObj(generatePlanetsURL())
+            .then(res => renderPlanets(res.planets, currentPage));
+        });
 }
 
 addEventsToPageButton()
