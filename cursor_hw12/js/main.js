@@ -65,7 +65,7 @@ const renderCharacthers = (arr) =>{
             ${arr.map(elem => `
             <li class="characters__item">
                 <span class="characters__name">Name: ${elem.name}</span>
-                <span class="charaters__birth">Birth Yeae: ${elem.birthYear}</span>
+                <span class="charaters__birth">Birth Year: ${elem.birthYear}</span>
                 <span class="characters__gender">Gender: ${elem.gender}</span>                            
             </li>`        
             ).join('\n')}
@@ -149,10 +149,10 @@ function addEventsToPageButton(){
         if(currentPage === lastPage){
             return
         } else{
-            const obj = getPlanetsObj(generatePlanetsURL(++currentPage));
+            const planetObj = getPlanetsObj(generatePlanetsURL(++currentPage));
         
-            obj.then(res => renderPlanets(res.planets, currentPage));    
-            obj.then(res => {
+            planetObj.then(res => renderPlanets(res.planets, currentPage));    
+            planetObj.then(res => {
                 if(!res.next){
                     lastPage = currentPage;
                 } 
@@ -161,12 +161,18 @@ function addEventsToPageButton(){
     })
 
     btnPrev.addEventListener('click', function(){
-    if(currentPage === 1){
-        return
-    } else {
-        getPlanetsObj(generatePlanetsURL(--currentPage))
-            .then(res => renderPlanets(res.planets, currentPage))
-    }
+        if(currentPage === 1){
+            return
+        } else {
+            const planetObj = getPlanetsObj(generatePlanetsURL(--currentPage))
+            
+            planetObj.then(res => renderPlanets(res.planets, currentPage))
+            planetObj.then( () => {
+                if(lastPage){
+                    lastPage = null;
+                }       
+            })
+        }
     })
 
     planetsBtn.addEventListener('click', function(){        
