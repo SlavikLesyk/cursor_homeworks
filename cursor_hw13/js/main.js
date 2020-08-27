@@ -17,7 +17,7 @@ document.getElementById('btnId').addEventListener('click', renderId)
 const upOrDown = (size, change) => {
     if (change === 'up'){
         return size += 2 
-    } else if(change === "down" && size > 0){
+    } else if(change === "down" && size > 2){
         return size -= 2
     }
 
