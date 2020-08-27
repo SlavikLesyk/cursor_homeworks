@@ -26,8 +26,10 @@ const upOrDown = (size, change) => {
 
 function* newFontGenerator(fontSize = 14){
     let currentFontSize = fontSize;
-    while(true){
+    while(true){ 
+        console.log(currentFontSize);
         currentFontSize = upOrDown(currentFontSize, yield currentFontSize);
+       
     }
 }
 
